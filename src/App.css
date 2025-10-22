@@ -1,0 +1,279 @@
+#root {
+  font-family: 'Inter', sans-serif;
+  margin: 0 ;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  background:linear-gradient(to top,#192D26,#276254)
+
+}
+
+body{
+margin: 0;
+}
+
+.nav{
+  width: 72px;
+  height: 100vh;
+  background-color: #192D26;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar{
+  background: none;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 1000px;
+  background-color: #E2F4ED;
+  margin:  39px 6px 49px;
+}
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 58px;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.menu_img{
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+}
+
+.menu_el{
+  width: 40px;
+  height: 40px;   
+}
+
+.settings{
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+/* НАВИГАЦИЯ ⬆⬆⬆⬆⬆⬆============================================================================== */
+.dialogs{
+  background:linear-gradient(to top,#AAE8D357,#AAE9D3);
+  border-radius: 0 50px 50px 0;
+  width: 416px;
+  height: 100vh ;
+}
+
+.chats{
+  margin-top: 24px;
+}
+
+.chat{
+  width: 402px;
+  margin-top: 9px;
+  height: 93px;
+  background:linear-gradient(to right, #2B4039, #2B403900);
+  border-radius:0 50px 50px 0;
+  display:flex;
+}
+
+.name{
+  display:flex;
+  margin: 8px;
+}
+
+.users_avatar{
+  width: 76px;
+  height: 76px;
+  border-radius: 1000px;
+  background-color: #557273;
+}
+
+.table_cont{
+  font-size: 24px;
+  font-weight: 700;
+  color: #E2F4ED;
+  margin: 0;
+}
+
+.text{
+  margin-top: 10px;
+  color: #79AFAD;
+  font-size: 20px;
+}
+
+.content{
+  margin-left: 9px ;
+  font-weight: 700;
+}
+
+/* ДИАЛОГИ⬆⬆⬆⬆⬆⬆============================================================================== */ 
+
+.main_dialog{
+  width: calc(100vw - 48px - 488px);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 36px);
+  margin: 24px;
+  margin-top: 16px;
+  margin-bottom: 0; 
+}
+
+.user_profil{
+  background: #E2F4ED ;
+  width: 100%;
+  
+  height: 82px;
+  margin: auto;
+  border-radius: 50px;
+  display: flex;
+}
+
+.user_avatar{
+  width: 63px;
+  height: 63px;
+  border-radius: 1000px;
+  background-color: #557273;
+  margin: 10px 10px 10px;
+}
+
+.text_at_profil{
+  margin-left: 11px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.us_name{
+  font-weight: 700;
+  font-size: 24px;
+  color: #2B4039;
+}
+
+.online{
+  font-weight: 700;
+  font-size: 20px;
+  color: #9EADAF;
+}
+
+.bubels{
+  flex: 1;
+  font-size: 24px;
+  font-weight: 800;
+  color: #2B4039;
+  margin-top:27px ;
+  margin-left: 48px ;
+  margin-right: 44px;
+}
+
+.bubels1{
+  max-width: 449px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bubels2{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: flex-end;
+}
+
+.in_Bubble{
+  background:linear-gradient(to right, #E2F4ED, #E2F4ED80);
+  width: fit-content;
+  height: fit-content;
+  padding:  27px 27px 9px 27px;
+  border-radius: 50px 50px 50px 0 ;
+}
+
+.out_Bubble{
+  margin-top: 34px;
+  background:linear-gradient(to right, #E2F4ED80, #E2F4ED);
+  width: fit-content;
+  height: fit-content;
+  padding: 27px 27px 9px 27px;
+  border-radius: 50px 50px 0 50px ;
+}
+
+.time{
+  color: #FFFFFF;
+  font-size: 24px;
+  margin-top: 9px;
+  margin-bottom: 0;
+}
+
+.time_in{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.time_out{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bubble1_text{
+  margin: 0;
+}
+
+/* ======================= */
+
+.send_message{
+  display: flex;
+  margin: auto;
+  width: 100%;
+}
+
+.input{
+  display: flex;
+  background: linear-gradient(to right, #D9F4EB, #35745E);
+  height: 73px;
+  width: 100%;  
+  border-radius:50px ;
+}
+
+.mes_input{
+  border: none;
+  font-size: 24px;
+  font-weight: 800;
+  color: #749478;
+  display: flex;
+  border-radius:50px ;    
+  background: none;
+  width: 100%;
+  outline: none;
+}
+
+.emoji{
+  width: 39px;
+  height: 39px;
+  margin: 17px;
+  background: none;
+  border: none;
+}
+
+.add_files{
+  margin: 19px;
+  background: none;
+  border: none;
+}
+
+.audio_mes{
+  display: flex;
+}
+
+.mic{
+  height: 73px;
+  width: 73px;
+  margin-left:2px;
+  background: #E2F4ED;
+  border-radius: 1000px;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+::placeholder{
+  color: #749478;
+}
+
+.mic:active{
+  background:#35745E ;
+}
