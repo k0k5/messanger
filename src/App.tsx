@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import './App.css'
 
 const messages = [{id: "2eb6c069-1bc4-4e98-9bf9-2dbb28beb075", 
@@ -67,17 +67,62 @@ const users = [{id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',//-------2
                isOnline: 'Online'},
               ]
 
+type ChatProps = {
+  id: string,
+  userId: string,
+  text: string,
+}
 
+type ProfilType = {
+  id: string,
+  name?: string,
+  isOnline?: string,
+}
+
+
+
+interface AppContextType{
+  profil: ProfilType;
+  userId: string;
+  currentChatId?: string;
+  setCurrentChatId?:React.Dispatch<React.SetStateAction<string>>,
+  setUserId?: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const AppContext = createContext<AppContextType>({
+    profil: {
+      id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
+      name: 'User1',
+      isOnline: 'Online'
+    },
+    // айди пользователя с которым чат
+    userId: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
+    currentChatId:'c139f80d-3d09-4291-a9d9-a6e92628bc39',
+    setCurrentChatId:()=>{},
+});
 
 function App() {
+  const [userId, setUserId] = useState("1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776");
+  const [currentChatId,setCurrentChatId] = useState('')
+
   return (
     <>
-      <Nav></Nav>
-
-      <Dialogs></Dialogs>
-
-      <Main_D></Main_D>
+    <AppContext.Provider value={{
+      userId: userId,
+      profil: {
+        id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
+        name: 'User1',
+        isOnline: 'Online'
+      },
+      currentChatId:currentChatId,
+      setUserId:setUserId,
+      setCurrentChatId:setCurrentChatId,
+    }}>
+        <Nav></Nav>
+        <Dialogs></Dialogs>    
+        <Main_D></Main_D>
     
+      </AppContext.Provider>
     </>
   )
 
@@ -113,17 +158,7 @@ const Dialogs = () =>{
   )
 }
 
-type ChatProps = {
-  id: string,
-  userId: string,
-  text: string,
-}
 
-type ProfilProps = {
-  id: string,
-  name: string,
-  isOnline: string,
-}
 
 const Chat = (props: ChatProps)=>{
   const user = users.find(el=>el.id === props.userId)
@@ -131,7 +166,7 @@ const Chat = (props: ChatProps)=>{
   console.log('ava', user?.avatar)
 
   return(
-    <div className="chat">
+    <div className="chat" >
       <div className="chat_with_user name ">
         <div className="users_avatar" style={{backgroundImage: `url(${user?.avatar})`}}></div>
           <div className="content">
@@ -144,22 +179,19 @@ const Chat = (props: ChatProps)=>{
 
 
 const Main_D = () =>{
+  
+const {userId} = useContext(AppContext)
   return(
     <div className="main_dialog">
-      {users.map(el => <User_prof 
-                          key={el.id}
-                          id={el.id}
-                          name={el.name}
-                          isOnline={el.isOnline}/>)}
-        
+        <User_prof id={userId}/>
         <Bubbles></Bubbles>
         <Send_message></Send_message>
     </div>
+  
 )}
 
-const User_prof = (props: ProfilProps)=>{
+const User_prof = (props: ProfilType)=>{
 const userProf = users.find(el=>el.id === props.id)
-console.log(userProf)
 
   return(
     <div className="user_profil">
