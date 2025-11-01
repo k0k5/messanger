@@ -2,46 +2,86 @@ import { createContext, useContext, useState } from 'react'
 import './App.css'
 
 const messages = [{id: "2eb6c069-1bc4-4e98-9bf9-2dbb28beb075", 
-                   text: "text1", date: "10.8.1990",
+                   text: "ibsoiipofghfghfh  rty oihop dfs s", date: "10.8.1990",
                    sendTime:'12:40',
                    senderId: "1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776", //59
                    dialogsId:"c139f80d-3d09-4291-a9d9-a6e92628bc39"}, //36
                   
                   {id: "e2e8940d-c1d0-424a-8d1b-d46b8ccbbafd",
-                   text: "text2", date: "10.8.1990",
+                   text: "ghfdhddjdgd", date: "10.8.1990",
                    sendTime:'12:41',
-                   senderId: "1a131e54-b761-494a-b993-6d5dfd470d4e",//54
-                   dialogsId:"c139f80d-3d09-4291-a9d9-a6e92628bc39"},//36
+                   senderId: "615a91b8-fbb5-4e8d-b1c2-f27babb07579",//54
+                   dialogsId:"0ba46ee7-ea7c-4a27-8416-d7685e19e7ed"},//36
                   
                   {id: "eeba751e-5014-4492-a146-8b106a6d6f36",
-                   text: "text3", date: "10.8.1990",
+                   text: "ertyertyerbybe", date: "10.8.1990",
                    sendTime:'12:11',
                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
                    dialogsId:"02d3d7a4-798a-40f2-892b-5ac33b2691f5"},//44
                   
                   {id: "9b90359e-02bb-40a0-acc9-2496fb2f05b2",
-                   text: "text4", date: "10.8.1990",
+                   text: "3467n3h457yurytey", date: "10.8.1990",
                    sendTime:'11:01',
-                   senderId: "615a91b8-fbb5-4e8d-b1c2-f27babb07579",//69
+                   senderId: "1a131e54-b761-494a-b993-6d5dfd470d4e",//69
                    dialogsId:"390da09a-8820-40be-ae1d-88024eed54c0"}, //40
-                  
+
+                  {id: "9b90359e-02bb-40a0-acc9-2496fb2f05b2",
+                    text: "ertyertyerbybe", date: "10.8.1990",
+                    sendTime:'12:11',
+                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
+                    dialogsId:"02d3d7a4-798a-40f2-892b-5ac33b2691f5"},
+
+                  {id: "e2e8940d-c1d0-424a-8d1b-d46b8ccbbafd",
+                    text: "eeeeee", date: "10.8.1990",
+                    sendTime:'12:42',
+                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
+                    dialogsId:"02d3d7a4-798a-40f2-892b-5ac33b2691f5"},
+
+                  {id: "eeba751e-5014-4492-a146-8b106a6d6f36",
+                    text: "ertyertyerbybe", date: "10.8.1990",
+                    sendTime:'12:11',
+                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
+                    dialogsId:"c139f80d-3d09-4291-a9d9-a6e92628bc39"},
+
+                  {id: "eeba751e-5014-4492-a146-8b106a6d6f36",
+                    text: "ertyertyerbybe", date: "10.8.1990",
+                    sendTime:'12:11',
+                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
+                    dialogsId:"02d3d7a4-798a-40f2-892b-5ac33b2691f5"},
+
+
+                 {id: "eeba751e-5014-4492-a146-8b106a6d6f36",
+                    text: "ertyertyerbybe", date: "10.8.1990",
+                    sendTime:'12:11',
+                    senderId: "e39d9899-8b8c-414d-958b-804cb918de7b", //64
+                    dialogsId:"02d3d7a4-798a-40f2-892b-5ac33b2691f5"},
+
+
+
+
                   ];
+
+const mainUser = 'e39d9899-8b8c-414d-958b-804cb918de7b'
 
 const dialogs = [{id: 'c139f80d-3d09-4291-a9d9-a6e92628bc39',//---------2
                   userId: "1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776", ///u1
-                  },
+                  lastMess: 'text',
+                  lastMessId:'2eb6c069-1bc4-4e98-9bf9-2dbb28beb075'},
                   
                  {id: '390da09a-8820-40be-ae1d-88024eed54c0',//---------
                    userId: "1a131e54-b761-494a-b993-6d5dfd470d4e", //u2
-                   lastMess: 'text',},
+                   lastMess: 'text',
+                  lastMessId:'9b90359e-02bb-40a0-acc9-2496fb2f05b2'},
                     
                  {id: '02d3d7a4-798a-40f2-892b-5ac33b2691f5',
                    userId: "e39d9899-8b8c-414d-958b-804cb918de7b", //u3
-                   lastMess: 'text',},
+                   lastMess: 'text',
+                   lastMessId:'eeba751e-5014-4492-a146-8b106a6d6f36'},
                     
                  {id: '0ba46ee7-ea7c-4a27-8416-d7685e19e7ed',//---------
                    userId: "615a91b8-fbb5-4e8d-b1c2-f27babb07579", //u4
-                   lastMess: 'text',},
+                   lastMess: 'text',
+                  lastMessId:'e2e8940d-c1d0-424a-8d1b-d46b8ccbbafd'},
                    
                   
                 ]
@@ -70,7 +110,9 @@ const users = [{id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',//-------2
 type ChatProps = {
   id: string,
   userId: string,
-  text: string,
+  lastMess?: string,
+  lastMessId?:string,
+
 }
 
 type ProfilType = {
@@ -79,13 +121,17 @@ type ProfilType = {
   isOnline?: string,
 }
 
-
+// type DialogType = {
+//   id: string,
+//   userId?: string,
+// }
 
 interface AppContextType{
   profil: ProfilType;
+  chat?:ChatProps;
   userId: string;
-  currentChatId?: string;
-  setCurrentChatId?:React.Dispatch<React.SetStateAction<string>>,
+  currentChatId: string;
+  setCurrentChatId:React.Dispatch<React.SetStateAction<string>>,
   setUserId?: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -95,6 +141,12 @@ const AppContext = createContext<AppContextType>({
       name: 'User1',
       isOnline: 'Online'
     },
+
+    
+    // dialog: {
+    //   id: 'c139f80d-3d09-4291-a9d9-a6e92628bc39',
+    //   userId: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776'
+    // },
     // айди пользователя с которым чат
     userId: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
     currentChatId:'c139f80d-3d09-4291-a9d9-a6e92628bc39',
@@ -102,8 +154,8 @@ const AppContext = createContext<AppContextType>({
 });
 
 function App() {
-  const [userId, setUserId] = useState("1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776");
-  const [currentChatId,setCurrentChatId] = useState('')
+  const [userId, setUserId] = useState(""); //1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776
+  const [currentChatId,setCurrentChatId] = useState('') //c139f80d-3d09-4291-a9d9-a6e92628bc39
 
   return (
     <>
@@ -146,27 +198,29 @@ const Nav = () =>{
 const Dialogs = () =>{
   return(
     <div className="dialogs">
-          <div className="chats">
-            {messages.map(el => <Chat key={el.id}
-                                      userId={el.senderId}
+        <div className="chats">
+            {dialogs.map(el => <Chat key={el.id}
+                                      userId={el.userId}
                                       id={el.id}
-                                      text={el.id}
-                                />)}
-           
-          </div>
+                                      lastMess={el.lastMess}
+                                      lastMessId={el.lastMessId}
+            />)}
+        </div>
     </div>
   )
 }
 
 
-
 const Chat = (props: ChatProps)=>{
   const user = users.find(el=>el.id === props.userId)
-  const message = messages.find(el=>el.id === props.text)
+  const {currentChatId, setCurrentChatId} = useContext(AppContext)
+  const message = messages.find(el=>el.id === props.lastMessId)
   console.log('ava', user?.avatar)
 
+  const isSelected = currentChatId == props.id
+  console.log(currentChatId, props.id, isSelected)
   return(
-    <div className="chat" >
+    <div className="chat" style={{background: isSelected? "linear-gradient(to right, #2B4039, #2B4039AB)" : "linear-gradient(to right, #2B4039, #2B403900)"}} onClick={()=>setCurrentChatId(message?.dialogsId || '')}>
       <div className="chat_with_user name ">
         <div className="users_avatar" style={{backgroundImage: `url(${user?.avatar})`}}></div>
           <div className="content">
@@ -177,13 +231,14 @@ const Chat = (props: ChatProps)=>{
     </div>
 )}
 
-
 const Main_D = () =>{
-  
-const {userId} = useContext(AppContext)
+
+const { currentChatId} = useContext(AppContext)
+
+
   return(
     <div className="main_dialog">
-        <User_prof id={userId}/>
+        <User_prof id={currentChatId}/>
         <Bubbles></Bubbles>
         <Send_message></Send_message>
     </div>
@@ -191,7 +246,10 @@ const {userId} = useContext(AppContext)
 )}
 
 const User_prof = (props: ProfilType)=>{
-const userProf = users.find(el=>el.id === props.id)
+  const {currentChatId} = useContext(AppContext)
+
+  const chat = dialogs.find(el=>el.id === currentChatId)
+  const userProf = users.find(el=>el.id === chat?.userId)
 
   return(
     <div className="user_profil">
@@ -205,24 +263,22 @@ const userProf = users.find(el=>el.id === props.id)
 }
 
 const Bubbles = ()=>{
+  const {currentChatId} = useContext(AppContext)
+
+  const curChatMess = messages.filter(el=> el.dialogsId === currentChatId)
+
+
   return(
       <div className="bubels">
-
-            <div className="bubels1">
-                  <div className="in_Bubble">
-                    <p className="bubble1_text">ibsoiipofghfghfh  rty oihop dfs s</p>
-                    <p className="time time_in">12:40</p>
-                  </div>
-            </div>
-
-            <div className="bubels2">
-                  <div className="out_Bubble">
-                    <p className="bubble1_text">ghfdhddjdgd</p>
-                    <p className="time time_out">12:41</p>
-                  </div>
-            </div>
-
-          </div>
+          {curChatMess.map(el => <div className={ mainUser === el.senderId ?  "bubels2": "bubels1"}>
+                <div className={ mainUser === el.senderId ?  "out_Bubble": "in_Bubble"}>
+                    <p className="bubble1_text">
+                      {el.text}
+                    </p>
+                  <p className="time time_in">{el.sendTime}</p>
+                </div>
+          </div>)}
+      </div>
   )
 }
 
