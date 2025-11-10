@@ -4,8 +4,7 @@
   padding: 0;
   display: flex;
   height: 100vh;
-  background:linear-gradient(to top,#192D26,#276254)
-
+  background:linear-gradient(to top,#192D26,#276254);
 }
 
 body{
@@ -35,7 +34,9 @@ margin: 0;
   flex-direction: column;
   justify-content: space-between;
   gap: 58px;
-  align-items: center;
+  /* align-items: center; */
+  margin-right: 15px ;
+  margin-left: 10px ;
   flex-grow: 1;
 }
 
@@ -44,6 +45,7 @@ margin: 0;
   height: 100%;
   background: none;
   border: none;
+  
 }
 
 .menu_el{
@@ -53,9 +55,11 @@ margin: 0;
 
 .settings{
   margin-top: auto;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 /* НАВИГАЦИЯ ⬆⬆⬆⬆⬆⬆============================================================================== */
+
+
 .dialogs{
   background:linear-gradient(to top,#AAE8D357,#AAE9D3);
   border-radius: 0 50px 50px 0;
@@ -105,8 +109,8 @@ margin: 0;
   margin-left: 9px ;
   font-weight: 700;
 }
-
 /* ДИАЛОГИ⬆⬆⬆⬆⬆⬆============================================================================== */ 
+
 
 .main_dialog{
   width: calc(100vw - 48px - 488px);
