@@ -1,11 +1,12 @@
 import { useMessage, type MessageType } from './stores/mesStore'
 import { useDialog, type DialogType } from './stores/dialogsStore'
-import { useUser, type UserType} from './stores/usersStore'
+import { useUser, mainUser, type UserType} from './stores/usersStore'
 import { createContext, useContext, useState } from 'react'
 import './App.css'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { useShallow } from 'zustand/shallow'
+import { RegPage } from './pages/regPage'
 
-
-const mainUser = 'e39d9899-8b8c-414d-958b-804cb918de7b'
 
 type ChatProps = {
   id: string,
@@ -41,28 +42,40 @@ const AppContext = createContext<AppContextType>({
     setCurrentChatId:()=>{},
 });
 
+export const ChatPage = () => {
+  return (
+    <>
+      <Nav></Nav>
+      <Dialogs></Dialogs>    
+      <Main_D></Main_D>
+    </>
+  )
+}
+
 function App() {
   const [userId, setUserId] = useState(""); //1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776
   const [currentChatId,setCurrentChatId] = useState('') //c139f80d-3d09-4291-a9d9-a6e92628bc39
 
   return (
     <>
-    <AppContext.Provider value={{
-      userId: userId,
-      profil: {
-        id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
-        name: 'User1',
-        isOnline: 'Online'
-      },
-      currentChatId:currentChatId,
-      setUserId:setUserId,
-      setCurrentChatId:setCurrentChatId,
-    }}>
-        <Nav></Nav>
-        <Dialogs></Dialogs>    
-        <Main_D></Main_D>
-    
-      </AppContext.Provider>
+    <BrowserRouter>
+      <AppContext.Provider value={{
+        userId: userId,
+        profil: {
+          id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',
+          name: 'User1',
+          isOnline: 'Online'
+        },
+        currentChatId:currentChatId,
+        setUserId:setUserId,
+        setCurrentChatId:setCurrentChatId,
+      }}>
+          <Routes>
+            <Route path='/chat' element={<ChatPage/>}/>
+            <Route path='/registration' element={<RegPage/>}/>
+          </Routes>      
+        </AppContext.Provider>
+      </BrowserRouter>
     </>
   )
 
@@ -72,12 +85,12 @@ const Nav = () =>{
 
   return(
     <div className="nav">
-        <button className="avatar"></button>
+        <button className='button avatar'><img className="avatar" src= {mainUser.avatar} alt="a" /></button>
         <div className="menu">
             <div className="menu_el"><button className="menu_img"><img src='./src/assets/Icon(3).png' alt=""/></button></div>
             <div className="menu_el"><button className="menu_img"><img src="./src/assets/Icon (1).png" alt="" /></button></div>
-            <div className="menu_el"><button className="menu_img"><img src="./src/assets/\Icon (2).png" alt="" /></button></div>
-            <div className="menu_el settings" ><button className='menu_img'><img src="./src/assets/\Tool.png" alt="" /></button></div>
+            <div className="menu_el"><button className="menu_img"><img src="./src/assets/Icon (2).png" alt="" /></button></div>
+            <div className="menu_el settings" ><button className='menu_img'><img src="./src/assets/Tool.png" alt="" /></button></div>
         </div>
     </div>
 
@@ -157,15 +170,15 @@ const User_prof = (props: ProfilType)=>{
 }
 
 const Bubbles = ()=>{
-  const {messages, addMessage}= useMessage()
+  const {messages}= useMessage()
   const {currentChatId} = useContext(AppContext)
   const curChatMess = messages.filter(el=> el.dialogsId === currentChatId)
 
 
   return(
     <div className = "bubels">
-            {curChatMess.map(el => <div className = { mainUser === el.senderId ?  "bubels2" : "bubels1"}>
-              <div className = { mainUser === el.senderId ? "out_Bubble": "in_Bubble"}>
+            {curChatMess.map(el => <div className = { mainUser.id === el.senderId ?  "bubels2" : "bubels1"}>
+              <div className = { mainUser.id === el.senderId ? "out_Bubble": "in_Bubble"}>
                   <p className = "bubble1_text">
                       {el.text}
                   </p>
@@ -182,16 +195,23 @@ const Bubbles = ()=>{
 }
 
 const Send_message =()=>{
-
+ const { addMessage}= useMessage()
+ const {currentChatId} = useContext(AppContext)
+const [message, setMessage] = useState('')
   
   return(
     <div className="send_message">
         <div className="input">
             <button className="emoji"><img src='./src/assets/Smile.png' alt="a" /></button>
-            <input type="text" className='mes_input' placeholder='Message'/>
+            <input onChange={e=>setMessage(e.target.value)} type="text" className='mes_input' placeholder='Message' value={message}/>
             <button className="add_files"><img src="./src/assets/Paperclip.png" alt="" /></button>
         </div>
-        <div className="audio_mes"><button className="mic"><img src="./src/assets/Mic.png" alt="" /></button></div>
+        <div className="audio_mes">
+          <button onClick={e=>{
+            addMessage({id:'trr54by5stry', dialogsId:currentChatId, senderId:mainUser.id, text:message})
+            setMessage("")}}
+            className="mic"><img className='send_but' src="./src/assets/Send.png" alt="" /></button></div>
+    
     </div>
   )
 }

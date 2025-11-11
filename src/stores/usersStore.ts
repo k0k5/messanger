@@ -12,6 +12,10 @@ interface UsersStore {
     addUser: (newUser: any) => void
 }
 
+export const mainUser = {id: 'e39d9899-8b8c-414d-958b-804cb918de7b',
+                         avatar: './src/assets/avatars/main.jpg'}
+
+
 export const useUser = create<UsersStore>((set)=>({
 
     users: [{id: '1b0b1dfa-911e-478f-b3cc-c2ed8a2e8776',//-------2

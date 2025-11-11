@@ -1,0 +1,137 @@
+#root {
+    font-family: 'Inter', sans-serif;
+    margin: 0 ;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background:linear-gradient(to top,#192D26,#276254);
+  }
+
+
+.main_window{
+    height: 100vh;
+    width: 723px;
+    margin: auto;
+    background: linear-gradient(to top, #E2F4ED80, #E2F4ED);
+}
+
+.registration{
+    display: flex;
+    background: #276254;
+    width: 530px;
+    height: 67px;
+    border-radius: 50px;
+    margin: auto;
+
+}
+
+.reg{
+    font-size: 32px;
+    font-weight: 700;
+    color: #E2F4ED;
+    justify-content: center;
+    margin: auto;
+}
+
+.add_avatar{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 60px;
+    width: 265px;
+    height: 265px;
+    background: #276254;
+    border-radius: 1000px;
+}
+
+.for_reg{
+    display: flex;
+    margin-top:0 ;
+    flex-direction: column;
+    
+}
+.n{
+
+    margin: auto;
+    padding: 16px;
+    padding-bottom:21px ;
+    padding-right:42px ;
+    font-size: 24px;
+    font-weight: 700;
+    color: #E2F4ED;
+    
+
+}
+
+.name{
+  
+    margin: 0;
+    background:#276254;
+    border-radius: 0 50px  50px 0 ;
+}
+
+.input{
+    background: #E2F4ED;
+    border: none;
+    padding-left: 20px;
+    font-size: 20px;
+    background: none;
+    outline: none;
+    color: #192D26;
+    font-weight: 700;
+    height: 60px;
+}
+
+.name_for_input{
+    display: flex;
+    background:#E2F4ED;
+    margin: auto;
+    margin-bottom: 28px;
+    width: 530px;
+    height: 60px;
+    /* width: ; */
+    /* border-radius: 0 50px  50px 0 ; */
+}
+
+.nfi1{
+margin-top: 59px;
+}
+
+.nfi3{
+    margin-bottom: 0;
+}
+
+.add{
+    margin: auto;
+    background: none;
+    border: none;
+    border-radius: 1000px;
+    width: 265px;
+    height: 265px;
+}
+
+.register{
+    display: flex;
+    background: #E2F4ED;
+    height: 75px;
+    width: 388px;
+    color: #276254;
+    font-size: 32px;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: 74px;
+    font-weight: 700;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.reg_but{
+    margin: auto;
+}
+
+
+.register:active{
+    background: #276254;
+    color: #E2F4ED;
+
+}

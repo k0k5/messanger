@@ -19,14 +19,26 @@ margin: 0;
   flex-direction: column;
 }
 
-.avatar{
+.button{
   background: none;
   border: none;
   width: 60px;
   height: 60px;
-  border-radius: 1000px;
+  border-radius: 1000%;
+  padding: 0;
   background-color: #E2F4ED;
-  margin:  39px 6px 49px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+
+.avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 1000px;
+  /*  */
+  /* margin: auto; */
+  /* margin-top: 25px; */
 }
 
 .menu{

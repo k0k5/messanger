@@ -5,13 +5,13 @@ export type MessageType = {
     text: string,
     dialogsId: string,
     senderId: string,
-    sendTime: string,
-    date: string
+    sendTime?: string,
+    date?: string
 }
 
 interface MessagesStore {
     messages: MessageType[]
-    addMessage: (newMessage: any) => void
+    addMessage: (newMessage: MessageType) => void
 }
 
 export const useMessage = create<MessagesStore>((set)=> ({
