@@ -1,4 +1,4 @@
-import './regPage.css'
+import styles from './regPage.module.css'
 
 
 
@@ -14,15 +14,15 @@ return(
 const Back = () =>{
 
     return(
-        <div className="main_window">
-            <div className="registration"><p className="reg">Registration</p></div>
-            <div className="add_avatar"><button className="add"><img src=".\src\assets\Plus circle.png" alt=""/></button></div>
-            <div className="for_reg">
-                <div className="name_for_input nfi1"><div className="name"><p className="n">Username</p></div><input className="input" type="text"/></div>
-                <div className="name_for_input"><div className="name"><p className="n" >Password</p></div><input className="input" type="text"/></div>
-                <div className="name_for_input nfi3"><div className="name"><p className="n">Password</p></div><input className="input" type="text"/></div>
+        <div className={styles.main_window}>
+            <div className={styles.registration}><p className={styles.reg}>Registration</p></div>
+            <div className={styles.add_avatar}><button className={styles.add}><img src=".\src\assets\Plus circle.png" alt=""/></button></div>
+            <div className={styles.for_reg}>
+                <div className={`${styles.name_for_input} ${styles.nfi1}`}><div className={styles.name}><p className={styles.n}>Username</p></div><input className={styles.input} type="text"/></div>
+                <div className={styles.name_for_input}><div className={styles.name}><p className={styles.n} >Password</p></div><input className={styles.input} type="text"/></div>
+                <div className={`${styles.name_for_input} ${styles.nfi3}`}><div className={styles.name}><p className={styles.n}>Password</p></div><input className={styles.input} type="text"/></div>
             </div>
-        <button className="register"><p className="reg_but">REGISTER</p></button>
+        <button className={styles.register}><p className={styles.reg_but}>REGISTER</p></button>
         </div>
     )
 }

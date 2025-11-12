@@ -2,11 +2,13 @@
     font-family: 'Inter', sans-serif;
     margin: 0 ;
     padding: 0;
-    display: flex;
+    /* display: flex; */
     height: 100vh;
     background:linear-gradient(to top,#192D26,#276254);
   }
-
+body{
+    display: block;
+}
 
 .main_window{
     height: 100vh;

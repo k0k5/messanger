@@ -1,0 +1,142 @@
+#root {
+    
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    height: 100vh;margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    background:linear-gradient(to top,#192D26,#276254)
+}
+
+.nav{
+    width: 72px;
+    height: 100vh;
+    background-color: #192D26;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar{
+    background: none;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 1000px;
+    background-color: #E2F4ED;
+    margin:  39px 6px 49px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 58px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.menu_img{
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+}
+
+.menu_el{
+    width: 40px;
+    height: 40px;   
+}
+
+.settings{
+    margin-top: auto;
+    margin-bottom: 12px; 
+}
+
+.settWindow{
+    width: calc(100vh - 72px);
+    height: 100vh;
+}
+
+.change_av{
+    position: relative;
+}
+
+.main_avatar{
+    border-radius: 1000px;
+    background: #E2F4ED;
+    width: 356px;
+    height: 356px;
+    z-index: 1;
+    
+}
+
+.change_avatar{
+    display: flex;
+    position: absolute;
+    left: 250px;
+    top: 248px;
+    width: 96px;
+    height: 96px;
+    border-radius: 1000px;
+    background: #9CC2B3;
+    z-index: 2;
+    border: none;
+}
+.chAv{
+    display: flex;
+    margin: auto;
+}
+
+.change_pass{
+    width: 374px;
+    height: 74px;
+    border-radius: 50px;
+    border: none;
+    background: #E2F4ED;
+    display:flex;
+    font-size: 32px;
+    font-weight: 600;
+    color: #2B4039;
+    
+}
+
+.refresh{
+    width: 36px;
+    height: 36px;
+    margin-left: 8px;
+}
+
+.mini_settWin{
+    display: flex;
+    flex-direction: column;
+    width: 374px;
+    height: 100vh;
+    margin: auto;
+    gap: 52px;
+}
+
+.butt{
+    display: flex;
+    margin: auto;
+}
+
+.out{
+    margin: auto;
+    color: #FF0000;
+    font-size: 32px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.out_but{
+    margin: auto;
+    width: 70px;
+    height: 70px;
+}
+
